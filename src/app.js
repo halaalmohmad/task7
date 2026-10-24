@@ -1,0 +1,18 @@
+require('dotenv').config();
+
+const express = require('express');
+const morgan = require('morgan');
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.use(morgan('dev'));
+app.use(express.json());
+
+app.get('/', (req, res) => {
+  res.json({ message: 'Social Media API is running' });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
